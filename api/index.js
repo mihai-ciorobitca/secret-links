@@ -1,6 +1,7 @@
 const express = require("express");
 const supabase = require("@supabase/supabase-js");
 const session = require("express-session");
+const path = require('path')
 
 require('dotenv').config();
 
