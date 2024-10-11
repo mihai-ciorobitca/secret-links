@@ -18,7 +18,7 @@ app.get("/", (_, res) => {
     return res.render("index");
 });
 
-app.get("/admin", (req, res) => {
+app.get("/admin", (_, res) => {
     if (session.admin) {
         return res.render("admin");
     }
@@ -32,7 +32,7 @@ app.get("/:name", async (req, res) => {
         .select("url")
         .eq("name", name);
     if (error) {
-        return res.status(500).json({ error: "Database query failed." });
+        return res.status(500).json({ error: error });
     }
 
     if (data.length === 0) {
